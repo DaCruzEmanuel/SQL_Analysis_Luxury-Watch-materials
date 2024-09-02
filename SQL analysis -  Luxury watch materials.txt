@@ -1,0 +1,217 @@
+-- ================================
+-- 1. Check the Whole Luxury Watch Table
+-- ================================
+
+SELECT *
+FROM luxurywatches;
+
+
+-- ================================
+-- 2. List All Watch Brands
+-- ================================
+
+SELECT DISTINCT Brand
+FROM luxurywatches;
+
+
+-- ================================
+-- 3. Display the Total Number of Watch Brands
+-- ================================
+
+SELECT  
+    COUNT(DISTINCT Brand) AS TotalNumberOfBrands
+FROM 
+    luxurywatches;
+
+
+-- ================================
+-- 4. Display the Total Number of Models by Brand
+-- ================================
+
+SELECT 
+    Brand,
+    COUNT(DISTINCT Model) AS NumberOfModels
+FROM
+    luxurywatches
+GROUP BY
+    Brand	
+ORDER BY
+    NumberOfModels DESC;
+
+
+-- ================================
+-- 5. List All Models by Watch Brand
+-- ================================
+
+SELECT
+    DISTINCT Brand, 
+    Model
+FROM
+    luxurywatches
+ORDER BY
+    Brand, Model;
+
+
+-- ================================
+-- 6. List All Case Materials
+-- ================================
+
+SELECT 
+    DISTINCT CaseMaterial
+FROM
+    luxurywatches;
+
+
+-- ================================
+-- 7. List All Strap Materials
+-- ================================
+
+SELECT
+    DISTINCT StrapMaterial
+FROM
+    luxurywatches;
+
+
+-- ================================
+-- 8. Average Price by Case and Strap Material
+-- ================================
+
+SELECT
+    CaseMaterial,
+    StrapMaterial, 
+    AVG(Price_usd) AS AveragePrice
+FROM
+    luxurywatches
+GROUP BY
+    CaseMaterial,
+    StrapMaterial
+ORDER BY 
+    AveragePrice DESC;
+
+
+-- ================================
+-- 9. Distribution of Movement Types
+-- ================================
+
+SELECT
+    MovementType,
+    COUNT(*) AS NumberOfWatches
+FROM 
+    luxurywatches
+GROUP BY
+    MovementType
+ORDER BY 
+    NumberOfWatches DESC;
+
+
+-- ================================
+-- 10. Correlation Between Water Resistance and Case/Strap Material
+-- ================================
+
+SELECT 
+    CaseMaterial,
+    StrapMaterial,
+    CONCAT(AVG(WaterResistance_meters), ' meters') AS AverageWaterResistance
+FROM 
+    luxurywatches
+GROUP BY 
+    CaseMaterial,
+    StrapMaterial
+ORDER BY
+    CaseMaterial, AverageWaterResistance DESC;
+
+
+-- ================================
+-- 11. Average Case Diameter and Thickness by Brand
+-- ================================
+
+SELECT
+    Brand,
+    CONCAT(AVG(CaseDiameter_mm), ' mm') AS AverageCaseDiameter,
+    CONCAT(AVG(CaseThickness_mm), ' mm') AS AverageCaseThickness
+FROM
+    luxurywatches
+GROUP BY
+    Brand
+ORDER BY 
+    AverageCaseDiameter DESC, AverageCaseThickness DESC;
+
+
+-- ================================
+-- 12. Common Features in High-Priced Watches
+-- ================================
+
+SELECT 
+    TOP 10 Brand,
+    Model,
+    CaseMaterial,
+    StrapMaterial,
+    MAX(Price_usd) AS HighestPrice
+FROM
+    luxurywatches
+GROUP BY
+    Brand,
+    Model,
+    CaseMaterial,
+    StrapMaterial
+ORDER BY
+    HighestPrice DESC;
+
+
+-- ================================
+-- 13. The Top 20 Most Expensive Watches
+-- ================================
+
+SELECT 
+    TOP 20 Brand, 
+    Model, 
+    Price_usd
+FROM 
+    luxurywatches
+ORDER BY 
+    Price_usd DESC;
+
+
+-- ================================
+-- 14. The Most Expensive Watch by Each Brand
+-- ================================
+
+WITH Price_Rank AS
+(
+    SELECT 
+        Brand, 
+        Model, 
+        Price_usd,
+        ROW_NUMBER() OVER (PARTITION BY Brand ORDER BY Price_usd DESC) AS rk
+    FROM 
+        luxurywatches
+)
+SELECT 
+    Brand, 
+    Model, 
+    Price_usd
+FROM 
+    Price_Rank
+WHERE 
+    rk = 1
+ORDER BY
+    Price_usd DESC;
+
+
+-- ================================
+-- 15. Set the Price Category for Each Brand and Model
+-- ================================
+
+SELECT 
+    Brand, 
+    Model, 
+    Price_usd,
+    CASE 
+        WHEN Price_usd >= 35000 THEN 'High'
+        WHEN Price_usd >= 10000 THEN 'Medium'
+        ELSE 'Low'
+    END AS Price_Category
+FROM 
+    luxurywatches
+ORDER BY 
+    Price_usd DESC;
