@@ -1,4 +1,4 @@
-# Luxury Watches SQL Analysis Project
+# Luxury watch materials SQL Analysis Project
 
 This project demonstrates my proficiency with SQL, showcasing some of the most common SQL statements used in data analysis. I used a fictitious dataset gathered from Kaggle, focusing on luxury watches. The purpose of this project is to explore the dataset through a series of analytical questions, providing insights into the data.
 
