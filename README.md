@@ -19,7 +19,7 @@ This project demonstrates my proficiency with SQL, showcasing some of the most c
 All SQL queries used in this project have been compiled into a single text file. You can view and download the queries by clicking the link below:
 
 - [SQL Queries for Data Exploration](https://github.com/DaCruzEmanuel/SQL_Analysis_Luxury-Watch-materials/blob/main/SQL%20analysis%20-%20%20Luxury%20watch%20materials.txt)
-- [Dataset]( )
+- [Dataset](https://github.com/DaCruzEmanuel/SQL_Analysis_Luxury-Watch-materials/blob/main/Luxury%20watch_Dataset_cleaned.csv)
 
 Feel free to explore the queries to understand the thought process and SQL techniques applied in this project.
 
