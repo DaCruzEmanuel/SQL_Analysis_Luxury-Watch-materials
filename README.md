@@ -10,15 +10,16 @@ This project demonstrates my proficiency with SQL, showcasing some of the most c
 
 ## Tasks Performed
 
-1. **Problem Definition:** Identified key questions and analytical tasks to perform on the dataset.
+1. **Problem Definition:** Identified 15 key questions and analytical tasks to perform on the dataset.
 2. **Dataset Import:** Imported the luxury watches dataset into SQL Server.
 3. **Data Exploration:** Conducted data exploration by answering predefined questions through SQL queries.
 
-## How to Access the SQL Queries
+## How to Access the SQL Queries and Dataset
 
 All SQL queries used in this project have been compiled into a single text file. You can view and download the queries by clicking the link below:
 
 - [SQL Queries for Data Exploration](https://github.com/DaCruzEmanuel/SQL_Analysis_Luxury-Watch-materials/blob/main/SQL%20analysis%20-%20%20Luxury%20watch%20materials.txt)
+- [Dataset]( )
 
 Feel free to explore the queries to understand the thought process and SQL techniques applied in this project.
 
