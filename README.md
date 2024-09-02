@@ -14,6 +14,22 @@ This project demonstrates my proficiency with SQL, showcasing some of the most c
 2. **Dataset Import:** Imported the luxury watches dataset into SQL Server.
 3. **Data Exploration:** Conducted data exploration by answering predefined questions through SQL queries.
 
+## SQL Statements Used
+
+In this project, the following key SQL statements and operations were utilized:
+
+- **SELECT:** To retrieve data from the database.
+- **DISTINCT:** To filter out duplicate values.
+- **COUNT:** To count the number of records or distinct values.
+- **GROUP BY:** To aggregate data by specific columns.
+- **ORDER BY:** To sort the results based on specified criteria.
+- **AVG:** To calculate the average of numeric values.
+- **MAX:** To find the maximum value in a set.
+- **CONCAT:** To concatenate multiple values into a single string.
+- **ROW_NUMBER:** To assign a unique sequential integer to rows within a partition.
+- **CASE:** To create conditional logic within queries.
+- **WITH (CTE):** To define a Common Table Expression for easier query structuring.
+
 ## How to Access the SQL Queries and Dataset
 
 All SQL queries used in this project have been compiled into a single text file. You can view and download the queries by clicking the link below:
